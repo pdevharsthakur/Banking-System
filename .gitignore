@@ -1,12 +1,14 @@
 # Compiled object files
-obj/
+obj/*
+!obj/README.md
 *.o
 *.ko
 *.obj
 *.elf
 
 # Compiled executable files
-bin/
+bin/*
+!bin/README.md
 *.exe
 *.out
 *.app
@@ -19,6 +21,7 @@ bin/
 
 # Database files
 database/*.txt
+!database/README.md
 
 # OS specific files
 .DS_Store
@@ -34,3 +37,4 @@ Thumbs.db
 .idea/
 *.swp
 *~
+*.txt

@@ -421,8 +421,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
   <p>
-    <a href="https://github.com/yourusername/banking-system/issues">Report Bug</a> •
-    <a href="https://github.com/yourusername/banking-system/issues">Request Feature</a>
+    <a href="https://github.com/pdevharshthakur/banking-system-c/issues">Report Bug</a> •
+    <a href="https://github.com/pdevharshthakur/banking-system-c/issues">Request Feature</a>
   </p>
   
   <p>Happy Banking! 🏦</p>
