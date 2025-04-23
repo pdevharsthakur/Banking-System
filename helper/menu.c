@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <unistd.h>
 #include "../include/menu.h"
 #include "../include/account.h"
 #include "../include/database.h"
@@ -211,7 +212,8 @@ void operateOnAccount() {
         printf("\n===== Account Operations =====\n");
         printf("1. Deposit\n");
         printf("2. Withdraw\n");
-        printf("3. Return to Main Menu\n");
+        printf("3. View Account Status\n");
+        printf("4. Return to Main Menu\n");
         printf("Enter choice: ");
         scanf("%d", &choice);
         clearInputBuffer();
@@ -228,6 +230,43 @@ void operateOnAccount() {
                 }
                 break;
             case 3:
+                // Display detailed account status with animation
+                clearScreen();
+                printf("\n\033[33m=== Retrieving Account Status ===\033[0m\n");
+                
+                // Add a simple loading animation
+                printf("Retrieving account data");
+                for (int i = 0; i < 3; i++) {
+                    usleep(300000); // Sleep for 300ms
+                    printf("\033[32m.\033[0m");
+                    fflush(stdout);
+                }
+                printf(" \033[32m[Done]\033[0m\n\n");
+                
+                // Display detailed account information
+                printf("\033[33m===== ACCOUNT STATUS =====\033[0m\n");
+                printf("\n\033[1mGeneral Information\033[0m\n");
+                printf("%-20s: %d\n", "Account Number", accounts[index].accountNumber);
+                printf("%-20s: %s\n", "Account Holder", accounts[index].name);
+                printf("%-20s: %d\n", "Age", accounts[index].age);
+                printf("%-20s: %c\n", "Gender", accounts[index].gender);
+                
+                printf("\n\033[1mFinancial Information\033[0m\n");
+                printf("%-20s: $%.2f\n", "Current Balance", accounts[index].balance);
+                printf("%-20s: %s\n", "Account Created on", accounts[index].dateOfCreation);
+                
+                printf("\n\033[1mAccount Status\033[0m\n");
+                if (accounts[index].balance > 0) {
+                    printf("%-20s: \033[32mACTIVE\033[0m\n", "Current Status");
+                    printf("%-20s: \033[32mGOOD STANDING\033[0m\n", "Standing");
+                } else {
+                    printf("%-20s: \033[33mACTIVE\033[0m\n", "Current Status");
+                    printf("%-20s: \033[33mZERO BALANCE\033[0m\n", "Standing");
+                }
+                
+                displayMessageAndWait("\nPress Enter to return to the main menu.");
+                break;
+            case 4:
                 return;
             default:
                 printf("\nInvalid choice.\n");

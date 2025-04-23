@@ -23,6 +23,9 @@ int deposit(Account *account) {
         return 0;
     }
     
+    // Display transaction processing animation
+    displayTransactionProcessing("Deposit");
+    
     account->balance += amount;
     printf("\nDeposit successful. New balance: $%.2f\n", account->balance);
     return 1;
@@ -45,6 +48,9 @@ int withdraw(Account *account) {
         printf("\nInsufficient funds. Withdrawal failed.\n");
         return 0;
     }
+    
+    // Display transaction processing animation
+    displayTransactionProcessing("Withdrawal");
     
     account->balance -= amount;
     printf("\nWithdrawal successful. New balance: $%.2f\n", account->balance);

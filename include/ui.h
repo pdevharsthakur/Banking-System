@@ -58,4 +58,11 @@ void clearInputBuffer();
  */
 void readString(char *buffer, int size);
 
+/**
+ * @brief Display a loading animation to simulate transaction processing.
+ * @param operation The type of operation being performed (e.g., "Deposit", "Withdrawal")
+ * @return void
+ */
+void displayTransactionProcessing(const char *operation);
+
 #endif /* UI_H */ 

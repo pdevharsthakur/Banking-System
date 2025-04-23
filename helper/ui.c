@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h> 
 #include "../include/ui.h"
 
 void clearScreen() {
@@ -58,4 +59,35 @@ void clearInputBuffer() {
 void readString(char *buffer, int size) {
     fgets(buffer, size, stdin);
     buffer[strcspn(buffer, "\n")] = 0; // Remove newline character
+}
+
+void displayTransactionProcessing(const char *operation) {
+    const char *loadingStages[] = {
+        "Connecting to server       ",
+        "Authenticating transaction ",
+        "Processing request         ",
+        "Updating account balance   ", 
+        "Finalizing transaction     "
+    };
+    
+    printf("\n\033[33m=== %s Transaction Processing ===\033[0m\n", operation);
+    
+    for (int stage = 0; stage < 5; stage++) {
+        printf("%s", loadingStages[stage]);
+        fflush(stdout);
+        
+        // Display loading animation dots
+        for (int i = 0; i < 3; i++) {
+            usleep(300000); // Sleep for 300ms
+            printf("\033[32m.\033[0m");
+            fflush(stdout);
+        }
+        
+        usleep(200000); // Wait a bit more
+        printf(" \033[32m[Done]\033[0m\n");
+        fflush(stdout);
+    }
+    
+    printf("\033[32m=== Transaction Completed Successfully ===\033[0m\n\n");
+    usleep(500000); // Pause a moment before continuing
 } 
