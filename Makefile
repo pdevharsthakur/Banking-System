@@ -1,16 +1,16 @@
 CC = gcc
 CFLAGS = -Wall -Wextra
-MAINDIR = main
+HELPERDIR = helper
 OBJDIR = obj
 BINDIR = bin
 TARGET = $(BINDIR)/banking_system
 
 # List of source files
 SOURCES = main.c \
-          $(MAINDIR)/account.c \
-          $(MAINDIR)/database.c \
-          $(MAINDIR)/menu.c \
-          $(MAINDIR)/ui.c
+          $(HELPERDIR)/account.c \
+          $(HELPERDIR)/database.c \
+          $(HELPERDIR)/menu.c \
+          $(HELPERDIR)/ui.c
 
 # Generate object file names
 OBJECTS = $(patsubst %.c,$(OBJDIR)/%.o,$(notdir $(SOURCES)))
@@ -32,7 +32,7 @@ $(TARGET): $(OBJECTS)
 $(OBJDIR)/%.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
-$(OBJDIR)/%.o: $(MAINDIR)/%.c
+$(OBJDIR)/%.o: $(HELPERDIR)/%.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 # Clean target

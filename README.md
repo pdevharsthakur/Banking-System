@@ -12,7 +12,7 @@
 
 ## 📋 Overview
 
-This application allows users to manage bank accounts, perform transactions, and store data in a text file database. It's designed with a clean, modular structure following best practices for C programming.
+This application allows users to deomstrate operations on bank accounts done by banks , perform transactions, and store data in a text file database, make the programe to retain memory. It's designed with a clean, modular structure following best practices for C programming.
 
 ## ✨ Features
 
@@ -46,17 +46,17 @@ Banking System/
 ├── bin/                  # Contains the compiled executable
 ├── database/             # Contains the database file
 │   └── bank_accounts.txt # Database file storing account information
+├── helper/               # Helper source files
+│   ├── account.c         # Implementation of account functions
+│   ├── database.c        # Implementation of database operations
+│   ├── menu.c            # Implementation of menu functions
+│   └── ui.c              # Implementation of UI functions
 ├── include/              # Header files
 │   ├── account.h         # Account structure and functions
 │   ├── database.h        # Database operations
 │   ├── menu.h            # Menu functions
 │   └── ui.h              # User interface functions
 ├── obj/                  # Object files generated during compilation
-├── main/                 # Source files
-│   ├── account.c         # Implementation of account functions
-│   ├── database.c        # Implementation of database operations
-│   ├── menu.c            # Implementation of menu functions
-│   └── ui.c              # Implementation of UI functions
 ├── main.c                # Main program entry point
 ├── Makefile              # Build script
 └── README.md             # Project documentation
